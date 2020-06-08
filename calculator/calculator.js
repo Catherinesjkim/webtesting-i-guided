@@ -2,9 +2,17 @@ module.exports = {
   add,
 };
 
-// pure function
 function add(a = 0, b = 0) {
-  return a + b
+  if(isNumber(a) && isNumber(b)) {
+    return a + b
+  } else {
+    throw new Error('Both arguments need to be numbers')
+  }
+}
+
+function isNumber(value) {
+  return !isNaN(parseFloat(value)) && isFinite(value) // JQuery implementation - checksing if sth is a number - Finite + Parsable 
+  // from jquery-1.9.1.js github repo https://github.com/jquery/jquery download and search for isNumeric
 }
 
 // start with low hanging fruit --> happy path (your basic assumptions or expectations)
