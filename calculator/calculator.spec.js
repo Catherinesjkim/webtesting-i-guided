@@ -36,11 +36,38 @@ describe('calculator', function() {
 			expect(add(undefined, 1)).toBe(1)
 		})
 
-		it.todo("should throw an error when passing an object")
-		it.todo("should throw an error when passing an array")
-		it.todo("should throw an error when passing NaN")
-		it.todo("should throw an error when passing undefined")
-		it.todo("should throw an error when passing null")
-		it.todo("should throw an error when passing a string")
+		it("should throw an error when arguments are not numbers", function() {
+			expect(() => { 
+				add(2, {}) 
+			}).toThrow()
+
+			expect(() => {
+				add(2, [])
+			}).toThrow()
+
+			expect(() => {
+				add(2, "two")
+			}).toThrow()
+
+			expect(() => {
+				add(2, NaN) // NaN is a number
+			}).toThrow()
+
+			expect(() => {
+				add(2, null)
+			}).toThrow()
+
+			// expect(() => {
+			// 	add(2, undefined) // make the state impossible - missing an argument
+			// }).toThrow()
+	})
+
+		// test('NaN is a number', function() {
+		// 	expect(typeof NaN).toBe("not a number")
+		// })
+
+		it.todo("should return the sum of a list of numbers separated by comma")
+		// use array from method - the gather/rest operator v. spread operator
+		// function add(args) in calculator.js
 	})
 })
